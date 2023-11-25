@@ -25,14 +25,7 @@ const CustomButton: React.FC<ButtonProps> = ( { label, onClick, disabled, outlin
             `}
         >
             {Icon && (
-                <Icon
-                size={24}
-                className="
-                    absolute
-                    left-4
-                    top-3
-                "
-                />
+                <Icon size={24} className="absolute left-4 top-3"/>
             )}
             {label}
         </button>
