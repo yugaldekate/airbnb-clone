@@ -40,7 +40,7 @@ const RegisterModal= () => {
                 loginModal.onOpen();
             })
             .catch((error) => {
-                toast.error(error);
+                toast.error("Something went wrong");
             })
             .finally(() => {
                 setIsLoading(false);
@@ -53,12 +53,12 @@ const RegisterModal= () => {
     }, [registerModal, loginModal])
 
     const bodyContent = (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-5">
             <Heading
                 title="Welcome to Airbnb"
                 subtitle="Create an account!"
             />
-            <form>
+            
             <Input
                 id="email"
                 label="Email"
@@ -84,7 +84,7 @@ const RegisterModal= () => {
                 errors={errors}
                 required
             />
-            </form>/
+            
         </div>
     )
 
@@ -106,7 +106,7 @@ const RegisterModal= () => {
             <div 
                 className="text-neutral-500 text-center mt-4 font-light">
                 <p>Already have an account?
-                    <span onClick={onToggle} className="text-neutral-800 cursor-pointer hover:underline"> Log in </span>
+                    <span onClick={onToggle} className="cursor-pointer hover:underline font-semibold text-rose-500"> Log in </span>
                 </p>
             </div>
         </div>

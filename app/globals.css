@@ -23,3 +23,24 @@ body,
   font-size: 16px !important;
   width: 100% !important;
 }
+
+@layer utilities {
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+    border-radius: 5px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgb(244, 63 ,94);
+    border-radius: 50px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgb(216, 29, 60);
+  }
+}

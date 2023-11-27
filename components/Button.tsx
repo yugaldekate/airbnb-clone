@@ -3,17 +3,17 @@
 import { IconType } from "react-icons";
 
 interface ButtonProps {
-    label: string,
-    small?: boolean,
-    outline?: boolean,
-    disabled?: boolean,
-    icon?: IconType,
-    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void,
+    label: string;
+    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+    disabled?: boolean;
+    outline?: boolean;
+    small?: boolean;
+    icon?: IconType;
 }
 
-const CustomButton: React.FC<ButtonProps> = ( { label, onClick, disabled, outline,small,icon: Icon }) => {
+const Button: React.FC<ButtonProps> = ({ label, onClick, disabled, outline,small,icon: Icon}) => {
     return ( 
-        <button disabled={disabled} onClick={onClick} 
+        <button disabled={disabled} onClick={onClick}
             className={`relative disabled:opacity-70 disabled:cursor-not-allowed rounded-lg hover:opacity-80 transition w-full
                 ${outline ? 'bg-white' : 'bg-rose-500'}
                 ${outline ? 'border-black' : 'border-rose-500'}
@@ -32,4 +32,4 @@ const CustomButton: React.FC<ButtonProps> = ( { label, onClick, disabled, outlin
     );
 }
  
-export default CustomButton;
+export default Button;

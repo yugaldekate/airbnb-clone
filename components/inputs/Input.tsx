@@ -4,14 +4,14 @@ import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 import { BiDollar } from "react-icons/bi";
 
 interface InputProps {
-    id: string;
-    label: string;
-    type?: string;
-    disabled?: boolean;
-    formatPrice?: boolean;
-    required?: boolean;
+    id: string,
+    label: string,
+    type?: string,
+    disabled?: boolean,
+    required?: boolean,
+    errors: FieldErrors,
+    formatPrice?: boolean,
     register: UseFormRegister<FieldValues>,
-    errors: FieldErrors
 }
 
 const Input: React.FC<InputProps> = ({ id, label, type = "text",  disabled,  formatPrice, register, required, errors }) => {
@@ -30,6 +30,7 @@ const Input: React.FC<InputProps> = ({ id, label, type = "text",  disabled,  for
                     ${errors[id] ? 'focus:border-rose-500' : 'focus:border-black'}
                 `}
             />
+
             <label className={`absolute text-md duration-150 transform -translate-y-3 top-5 z-10 origin-[0] 
                     peer-focus:scale-75
                     peer-focus:-translate-y-4
