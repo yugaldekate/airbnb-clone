@@ -1,4 +1,5 @@
 import bcrypt from "bcrypt";
+
 import NextAuth, { AuthOptions } from "next-auth";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 
@@ -68,4 +69,6 @@ export const authOptions: AuthOptions = {
     secret: process.env.NEXTAUTH_SECRET,
 }
 
-export default NextAuth(authOptions);
+const handler = NextAuth(authOptions);
+
+export {handler as GET, handler as POST};//write it as this otherwise it won't work in app folder
