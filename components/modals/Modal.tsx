@@ -92,7 +92,7 @@ const Modal : React.FC<ModalProps> = ({ title, isOpen, disabled, actionLabel, bo
                                 </div>
                             </div>
 
-                            <div className="md:overflow-auto custom-scrollbar" >
+                            <div className="overflow-auto custom-scrollbar" >
                                 {/*body*/}
                                 <div className="relative p-6 flex-auto">
                                     {body}
