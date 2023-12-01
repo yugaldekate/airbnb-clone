@@ -5,6 +5,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import CustomButton from "../CustomButton";
 
+import useRentModal from "@/hooks/useRentModal";
+
 interface ModalProps {
     title?: string;
     isOpen?: boolean;
@@ -22,6 +24,8 @@ const Modal : React.FC<ModalProps> = ({ title, isOpen, disabled, actionLabel, bo
 
     const modalRef = useRef<HTMLDivElement>(null);
     const [showModal, setShowModal] = useState(isOpen);
+
+    const rentModal = useRentModal();
 
     useEffect(() => {
         setShowModal(isOpen);
@@ -81,7 +85,9 @@ const Modal : React.FC<ModalProps> = ({ title, isOpen, disabled, actionLabel, bo
                                 ${showModal ? 'opacity-100' : 'opacity-0'}`
                             }
                     >
-                        <div className="translate relative flex flex-col w-full overflow-y-auto h-full md:h-[95%]  border-0 rounded-lg shadow-lg bg-white outline-none focus:outline-none">
+                        <div className={`translate relative flex flex-col w-full overflow-y-auto h-full md:h-[95%] border-0 rounded-lg shadow-lg bg-white outline-none focus:outline-none
+                                        ${rentModal.isOpen && "md:h-auto"}    `
+                                    }>
                             {/*header*/}
                             <div className="relative flex justify-center items-center p-6 rounded-t border-b-[1px]">
                                 <button onClick={handleClose} className="transition absolute left-9 p-1 border-0  hover:opacity-70">
