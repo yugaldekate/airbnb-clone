@@ -14,7 +14,7 @@ interface InputProps {
     register: UseFormRegister<FieldValues>,
 }
 
-const Input: React.FC<InputProps> = ({ id, label, type = "text",  disabled,  formatPrice, register, required, errors }) => {
+const CustomInput: React.FC<InputProps> = ({ id, label, type = "text",  disabled,  formatPrice, register, required, errors }) => {
 
     return (
         <div className="w-full relative">
@@ -46,4 +46,4 @@ const Input: React.FC<InputProps> = ({ id, label, type = "text",  disabled,  for
     );
 }
  
-export default Input;
+export default CustomInput;

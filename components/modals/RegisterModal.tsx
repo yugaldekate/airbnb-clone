@@ -14,7 +14,7 @@ import useRegisterModal from "@/hooks/useRegisterModal";
 
 import Modal from "./Modal";
 import Heading from "../Heading"
-import Input from "../inputs/Input";
+import CustomInput from "../inputs/CustomInput";
 import CustomButton from "../CustomButton";
 
 import { signIn } from "next-auth/react";
@@ -61,7 +61,7 @@ const RegisterModal= () => {
                 subtitle="Create an account!"
             />
             
-            <Input
+            <CustomInput
                 id="email"
                 label="Email"
                 disabled={isLoading}
@@ -69,7 +69,7 @@ const RegisterModal= () => {
                 errors={errors}
                 required
             />
-            <Input
+            <CustomInput
                 id="name"
                 label="Name"
                 disabled={isLoading}
@@ -77,7 +77,7 @@ const RegisterModal= () => {
                 errors={errors}
                 required
             />
-            <Input
+            <CustomInput
                 id="password"
                 label="Password"
                 type="password"

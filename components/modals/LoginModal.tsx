@@ -16,9 +16,9 @@ import useRegisterModal from "@/hooks/useRegisterModal";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 import Modal from "./Modal";
-import Button from "../Button";
 import Heading from "../Heading";
-import Input from "../inputs/Input";
+import CustomInput from "../inputs/CustomInput";
+import CustomButton from "../CustomButton";
 
 const LoginModal = () => {
     const router = useRouter();
@@ -66,7 +66,7 @@ const LoginModal = () => {
                 title="Welcome back"
                 subtitle="Login to your account!"
             />
-            <Input
+            <CustomInput
                 id="email"
                 label="Email"
                 disabled={isLoading}
@@ -74,7 +74,7 @@ const LoginModal = () => {
                 errors={errors}
                 required={true}
             />
-            <Input
+            <CustomInput
                 id="password"
                 label="Password"
                 type="password"
@@ -89,13 +89,13 @@ const LoginModal = () => {
     const footerContent = (
         <div className="flex flex-col gap-4 mt-3">
             <hr />
-            <Button 
+            <CustomButton 
                 outline 
                 label="Continue with Google"
                 icon={FcGoogle}
                 onClick={() => signIn('google') }
             />
-            <Button 
+            <CustomButton 
                 outline 
                 label="Continue with Github"
                 icon={AiFillGithub}
