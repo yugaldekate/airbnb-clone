@@ -44,3 +44,10 @@ body,
     background: rgb(216, 29, 60);
   }
 }
+
+.leaflet-bottom,
+.leaflet-control,
+.leaflet-pane,
+.leaflet-top {
+  z-index: 0 !important;
+}
