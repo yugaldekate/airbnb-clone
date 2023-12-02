@@ -6,6 +6,8 @@ import { toast } from 'react-hot-toast';
 import { useMemo, useState } from "react";
 import { useRouter } from 'next/navigation';
 
+import dynamic from 'next/dynamic';
+
 import useRentModal from '@/hooks/useRentModal';
 
 import Modal from "./Modal";
@@ -52,6 +54,11 @@ const RentModal = () => {
     const category = watch('category');
     const location = watch('location');
 
+    //Dynamically import the Map component coz it not working
+    const Map = useMemo(() => dynamic(() => import('../Map'), { 
+        ssr: false 
+    }), [location]);
+
     //setValue() function allows you to dynamically set the value of a registered field and have the options to validate and update the form state.
     const setCustomValue = (id: string, value: any) => {
         setValue(id, value, {
@@ -78,18 +85,18 @@ const RentModal = () => {
 
     const actionLabel = useMemo(() => {
         if (step === STEPS.PRICE) {
-            return 'Create'
+            return 'Create';
         }
 
-        return 'Next'
+        return 'Next';
     }, [step]);
 
     const secondaryActionLabel = useMemo(() => {
         if (step === STEPS.CATEGORY) {
-            return undefined
+            return undefined;
         }
 
-        return 'Back'
+        return 'Back';
     }, [step]);
 
     let bodyContent = (
@@ -124,13 +131,12 @@ const RentModal = () => {
                     value={location} 
                     onChange={(value) => setCustomValue('location', value)} 
                 />
+                <Map center={location?.latlng} />
             </div>
         )
     };
 
-    console.log("Location ---> ", location);
     
-
     return (
         <Modal
             disabled={isLoading}
