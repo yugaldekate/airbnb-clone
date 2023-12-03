@@ -13,6 +13,7 @@ import useRentModal from '@/hooks/useRentModal';
 import Modal from "./Modal";
 import Heading from '../Heading';
 import Counter from '../inputs/Counter';
+import ImageUpload from '../inputs/ImageUpload';
 import CategoryInput from '../inputs/CategoryInput';
 import CountrySelect from '../inputs/CountrySelect';
 
@@ -57,6 +58,7 @@ const RentModal = () => {
     const guestCount = watch('guestCount');
     const roomCount = watch('roomCount');
     const bathroomCount = watch('bathroomCount');
+    const imageSrc = watch('imageSrc');
 
     //Dynamically import the Map component coz it not working
     const Map = useMemo(() => dynamic(() => import('../Map'), { 
@@ -171,6 +173,20 @@ const RentModal = () => {
         )
     };
 
+    if (step === STEPS.IMAGES) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="Add a photo of your place"
+                    subtitle="Show guests what your place looks like!"
+                />
+                <ImageUpload
+                    value={imageSrc}
+                    onChange={ (value) => setCustomValue('imageSrc', value) }
+                />
+            </div>
+        )
+    };
     
     return (
         <Modal
