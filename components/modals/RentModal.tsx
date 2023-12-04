@@ -20,6 +20,7 @@ import CountrySelect from '../inputs/CountrySelect';
 import { categories } from '../navbar/Categories';
 
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import CustomInput from '../inputs/CustomInput';
 
 enum STEPS {
     CATEGORY = 0,
@@ -87,6 +88,23 @@ const RentModal = () => {
         if(step !== STEPS.PRICE){
             return onNext();
         }
+
+        setIsLoading(true);
+
+        axios.post('/api/listings', data)
+            .then(() => {
+                toast.success('Listing created!');
+                router.refresh();
+                reset();
+                setStep(STEPS.CATEGORY)
+                rentModal.onClose();
+            })
+            .catch(() => {
+                toast.error('Something went wrong.');
+            })
+            .finally(() => {
+                setIsLoading(false);
+            });
     }
 
     const actionLabel = useMemo(() => {
@@ -187,6 +205,55 @@ const RentModal = () => {
             </div>
         )
     };
+
+    if (step === STEPS.DESCRIPTION) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="How would you describe your place?"
+                    subtitle="Short and sweet works best!"
+                />
+                <CustomInput
+                    id="title"
+                    label="Title"
+                    disabled={isLoading}
+                    register={register}
+                    errors={errors}
+                    required
+                />
+                <hr />
+                <CustomInput
+                    id="description"
+                    label="Description"
+                    disabled={isLoading}
+                    register={register}
+                    errors={errors}
+                    required
+                />
+            </div>
+        )
+    }
+
+    if (step === STEPS.PRICE) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="Now, set your price"
+                    subtitle="How much do you charge per night?"
+                />
+                <CustomInput
+                    id="price"
+                    label="Price"
+                    formatPrice={true}
+                    type="number" 
+                    disabled={isLoading}
+                    register={register}
+                    errors={errors}
+                    required={true}
+                />
+            </div>
+        )
+    }
     
     return (
         <Modal
