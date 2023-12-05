@@ -31,7 +31,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <LoginModal/>
         <RegisterModal/>
         <ToasterProvider/>
-        {children}
+        <div className="pb-20 pt-28">
+          {children}
+        </div>
       </body>
     </html>
   )
