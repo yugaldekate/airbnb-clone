@@ -70,8 +70,11 @@ const ListingInfo: React.FC<ListingInfoProps> = ({ user, description, guestCount
             </div>
 
             <hr />
+
+            <div>
+                <Map center={coordinates} />
+            </div>
             
-            <Map center={coordinates} />
         </div>
     );
 }
