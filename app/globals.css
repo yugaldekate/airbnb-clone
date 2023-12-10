@@ -24,6 +24,15 @@ body,
   width: 100% !important;
 }
 
+.rdrDayDisabled {
+  background-color: rgba(228, 228, 228, 0.555) !important;
+}
+
+.rdrDayDisabled .rdrDayNumber span {
+  /* text-decoration: line-through !important; Apply a strike-through style if needed */
+  color: #eb6249  !important;
+}
+
 @layer utilities {
 
   .custom-scrollbar::-webkit-scrollbar {

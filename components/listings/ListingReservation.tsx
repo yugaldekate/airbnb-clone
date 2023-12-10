@@ -53,7 +53,7 @@ const ListingReservation: React.FC<ListingReservationProps> = ({ price, daysCoun
                     {`$${price.toLocaleString()} x ${daysCount} ${daysCount==1 ? "night" : "nights"}`}
                 </div>
                 <div className="font-semibold" >
-                    ${totalPrice.toLocaleString('en-US', {currency: 'INR', style:'currency'})}
+                    ${totalPrice.toLocaleString('en-US')}
                 </div>
             </div>
         </div>
