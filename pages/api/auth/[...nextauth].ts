@@ -9,7 +9,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 
 import prisma from "@/libs/prismadb";
 
-export const authOptions: any = {
+export const authOptions: AuthOptions = {
     //whenever a user do social login it's infomation automatically gets mapped/stored in DB because of adapter
     // prisma-adapter --> prisma --> mongodb
     //For more details visit : https://authjs.dev/reference/adapter/prisma
@@ -69,6 +69,4 @@ export const authOptions: any = {
     secret: process.env.NEXTAUTH_SECRET,
 }
 
-const handler = NextAuth(authOptions);
-
-export {handler as GET, handler as POST};//write it as this otherwise it won't work in app folder
+export default NextAuth(authOptions);
