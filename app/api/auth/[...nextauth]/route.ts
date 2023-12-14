@@ -9,7 +9,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 
 import prisma from "@/libs/prismadb";
 
-export const authOptions: AuthOptions = {
+export const authOptions: any = {
     //whenever a user do social login it's infomation automatically gets mapped/stored in DB because of adapter
     // prisma-adapter --> prisma --> mongodb
     //For more details visit : https://authjs.dev/reference/adapter/prisma
