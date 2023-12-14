@@ -6,6 +6,7 @@ import type { Metadata } from 'next'
 import Navbar from '@/components/navbar/Navbar';
 import RentModal from '@/components/modals/RentModal';
 import LoginModal from '@/components/modals/LoginModal';
+import SearchModal from '@/components/modals/SearchModal';
 import RegisterModal from '@/components/modals/RegisterModal';
 
 import ToasterProvider from '@/providers/ToasterProvider';
@@ -29,6 +30,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <Navbar currentUser={currentUser} />
         <RentModal/>
         <LoginModal/>
+        <SearchModal/>
         <RegisterModal/>
         <ToasterProvider/>
         <div className="pb-20 pt-28">
